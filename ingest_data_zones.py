@@ -22,7 +22,7 @@ def main(params):
     # download the csv file
 
     engine = create_engine(f'postgresql://{user}:{password}@{host}:{port}/{db}')
-    df_zones = pd.read_csv(csv_name, iterator=True, chunksize=100000)
+    df_zones = pd.read_csv(csv_name)
 
     df_zones.to_sql(name=table_name, con=engine, if_exists='replace')
 
